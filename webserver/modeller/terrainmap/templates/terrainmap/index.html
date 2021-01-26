@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -39,7 +41,9 @@
 
     <!-- Main tangram library -->
     <script src="https://unpkg.com/tangram/dist/tangram.min.js"></script>
-
-    <script src="main.js"></script>
+    <script>
+      var url = "{% static 'terrainmap/' %}";
+    </script>
+    <script src="{% static 'terrainmap/main.js' %}"></script>
   </body>
 </html>
