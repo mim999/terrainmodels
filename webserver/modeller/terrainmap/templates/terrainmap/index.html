@@ -45,5 +45,10 @@
       var url = "{% static 'terrainmap/' %}";
     </script>
     <script src="{% static 'terrainmap/main.js' %}"></script>
+
+    <form action="{% url 'blender' %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="blender" />
+    </form>
   </body>
 </html>
