@@ -22,20 +22,25 @@
   </head>
   <body>
     <div id="mapid"></div>
-    <div class="slidecontainer">
-      <input
-        type="range"
-        min="50"
-        max="10000"
-        value="50"
-        class="slider"
-        id="myRange"
-      />
-    </div>
+
     <div class="minmaxcontainer">
       <label id="minlabel">0</label>
       <label id="maxlabel">8848</label>
     </div>
+    <form action="{% url 'blender' %}" method="post">
+      {% csrf_token %}
+      <div class="slidecontainer">
+        <input
+          type="range"
+          min="50"
+          max="10000"
+          value="50"
+          class="slider"
+          id="myRange"
+        />
+      </div>
+      <input type="submit" value="blender" />
+    </form>
     <!-- Leaflet's library -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
@@ -45,10 +50,5 @@
       var url = "{% static 'terrainmap/' %}";
     </script>
     <script src="{% static 'terrainmap/main.js' %}"></script>
-
-    <form action="{% url 'blender' %}" method="post">
-      {% csrf_token %}
-      <input type="submit" value="blender" />
-    </form>
   </body>
 </html>
