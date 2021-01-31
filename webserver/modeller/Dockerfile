@@ -26,7 +26,8 @@ RUN apt-get -y install \
     sudo \
     ncdu \
     sqlite3 \
-    libsqlite3-dev 
+    libsqlite3-dev \
+    redis-server
 
 
 # install Blender dependencies

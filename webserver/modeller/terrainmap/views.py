@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from celery.decorators import task
 
 import os
 
@@ -17,7 +18,7 @@ def index(request):
 # blender -b test2.blend --python Scripts/Topo.py -o //Renders/img -f 1 -- C1.tif test1.stl
 def blender(request):
     print("testing bpy")
-    blenderScript()
+    blenderScript.delay()
     return render(request, 'terrainmap/rendered.html')
 
 
@@ -25,6 +26,7 @@ def rendertest(request):
     return render(request, 'terrainmap/rendered.html')
 
 
+@task(name="blender_render")
 def blenderScript():
     import bpy
     import bmesh
