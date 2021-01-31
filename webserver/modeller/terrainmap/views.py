@@ -18,7 +18,11 @@ def index(request):
 def blender(request):
     print("testing bpy")
     blenderScript()
-    return HttpResponse(request)
+    return render(request, 'terrainmap/rendered.html')
+
+
+def rendertest(request):
+    return render(request, 'terrainmap/rendered.html')
 
 
 def blenderScript():
@@ -33,7 +37,7 @@ def blenderScript():
 
     # set directory paths
     HeightmapPath = cwd+"/blender/Heightmaps/A1.tif"
-    StlPath = cwd+"/blender/STLs/testy3.stl"
+    StlPath = cwd+"/terrainmap/static/terrainmap/STLs/testy3.stl"
     print(StlPath)
 
     # create plane
