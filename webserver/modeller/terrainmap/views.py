@@ -16,3 +16,7 @@ def blender(request):
     task_id = blender_task.task_id
     print(f'Celery Task ID: {task_id}')
     return render(request, 'terrainmap/rendered.html', {'task_id': task_id})
+
+
+def test(request):
+    return render(request, 'terrainmap/testLERC.html')
