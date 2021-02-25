@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('blender', views.blender, name='blender'),
+    path('renderModel', views.renderModel, name='renderModel'),
     path('test', views.test, name='test'),
 ]

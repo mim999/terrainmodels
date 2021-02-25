@@ -27,7 +27,7 @@
       <label id="minlabel">0</label>
       <label id="maxlabel">8848</label>
     </div>
-    <form action="{% url 'blender' %}" method="post">
+    <form action="{% url 'renderModel' %}" method="post">
       {% csrf_token %}
       <div class="slidecontainer">
         <input
